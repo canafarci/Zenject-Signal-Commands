@@ -1,0 +1,12 @@
+{
+  "name": "com.canafarci.zenjectsignalcommands",
+  "version": "0.1.0",
+  "displayName": "Zenject Signal Commands Extension",
+  "description": "Extension for binding Commands to Zenject's built-in Signal infrastructure, similar to StrangeIoC's Command infrastructure",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "author": {
+    "name": "Berke Çakır",
+    "email": "ismetberke@gmail.com"
+  }
+}
