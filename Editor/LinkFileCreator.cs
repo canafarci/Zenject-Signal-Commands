@@ -1,33 +1,20 @@
 #if UNITY_EDITOR
 using System.IO;
 using UnityEditor;
-using UnityEditor.Build;
-using UnityEditor.Build.Reporting;
-using UnityEditor.UnityLinker;
-using UnityEngine;
 
-
-namespace Editor
+namespace ZenjectSignalCommands.Editor
 {
-    [InitializeOnLoad]
-    public class PackageImporter
+    public class LinkFileCreator
     {
-        static PackageImporter()
+        [InitializeOnLoadMethod]
+        static void OnImportPackageCompleted()
         {
-            AssetDatabase.importPackageCompleted += OnImportPackageCompleted;
-        }
-
-        static void OnImportPackageCompleted(string packageName)
-        {
-            if (packageName == "com.canafarci.zenjectsignalcommands")
-            {
-                CreateXMLFile();
-            }
+            CreateXMLFile();
         }
 
         static void CreateXMLFile()
         {
-            string filePath = "Assets/Plugins/link.xml";
+            string filePath = "Assets/Plugins/ZenjectSignalCommands/link.xml";
             if (!File.Exists(filePath))
             {
                 using (StreamWriter writer = new StreamWriter(filePath))
